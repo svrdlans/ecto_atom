@@ -24,4 +24,8 @@ defmodule Ecto.Atom do
   def dump(value) when is_atom(value), do: {:ok, Atom.to_string(value)}
   def dump(_), do: :error
 
+  def embed_as(_), do: :self
+
+  def equal?(value, value) when is_atom(value), do: true
+  def equal?(_, _), do: false
 end
